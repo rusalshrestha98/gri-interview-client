@@ -21,6 +21,7 @@ const TaskForm = ({ createTask }: TaskFormProps) => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
+	  <h2>Create New Task</h2>
       <input
         type='text'
         placeholder='Title'
@@ -43,8 +44,8 @@ const TaskForm = ({ createTask }: TaskFormProps) => {
 
       <input type='submit' />
 
-      {errors.title && <ErrorMsgText>The title field is required</ErrorMsgText>}
-      {errors.description && <ErrorMsgText>The description field is required</ErrorMsgText>}
+      {errors.title && <StyledErrorText>The title field is required</StyledErrorText>}
+      {errors.description && <StyledErrorText>The description field is required</StyledErrorText>}
     </StyledForm>
   );
 };
@@ -52,10 +53,9 @@ const TaskForm = ({ createTask }: TaskFormProps) => {
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  width: 30%;
 `;
 
-const ErrorMsgText = styled.p`
+const StyledErrorText = styled.p`
   color: red;
 `;
 

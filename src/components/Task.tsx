@@ -25,16 +25,24 @@ const Task = ({ task, updateTask, deleteTask }: TaskProps) => {
 
   return (
     <StyledCard>
-      <input
-        type='text'
-        value={updatedTitle}
-        onChange={(e) => setUpdatedTitle(e.target.value)}
-      />
-      <input
-        type='text'
-        value={updatedDescription}
-        onChange={(e) => setUpdatedDescription(e.target.value)}
-      />
+      <div>
+        <label>Title: </label>
+        <input
+          type='text'
+          value={updatedTitle}
+          onChange={(e) => setUpdatedTitle(e.target.value)}
+        />
+      </div>
+
+      <div>
+        <label>Description: </label>
+        <input
+          type='text'
+          value={updatedDescription}
+          onChange={(e) => setUpdatedDescription(e.target.value)}
+        />
+      </div>
+
       <div>
         <label>Completed:</label>
         <input
@@ -51,7 +59,9 @@ const Task = ({ task, updateTask, deleteTask }: TaskProps) => {
 };
 
 const StyledCard = styled(Card)`
-  background-color: green;
+  width: 20rem;
+  margin: 20px;
+  border: 0.25rem solid black;
 `;
 
 export default Task;

@@ -11,6 +11,7 @@ interface TaskListProps {
 const TaskList = ({ tasks, updateTask, deleteTask }: TaskListProps) => {
   return (
     <StyledList>
+      <h2>List of All Tasks</h2>
       {tasks.map((task) => (
         <li key={task.id}>
           <Task
@@ -26,6 +27,12 @@ const TaskList = ({ tasks, updateTask, deleteTask }: TaskListProps) => {
 
 const StyledList = styled.ul`
   list-style-type: none;
+  padding: 0;
+
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export default TaskList;

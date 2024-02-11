@@ -50,22 +50,23 @@ function App() {
   };
 
   return (
-    <Container>
-      <h1>My Tasks</h1>
+    <StyledContainer>
+      <h1>Task Manager App</h1>
       <TaskForm createTask={createTask} />
       <TaskList
         tasks={tasks}
         updateTask={updateTask}
         deleteTask={deleteTask}
       />
-    </Container>
+    </StyledContainer>
   );
 }
 
-const Container = styled.div`
-  margin: 2rem;
+const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default App;
