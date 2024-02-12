@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Card } from '@mui/material';
 import styled from 'styled-components';
-import { ITask } from '../types';
+import { ITask } from '../../types';
 
 interface TaskProps {
   task: ITask;
@@ -24,10 +24,12 @@ const Task = ({ task, updateTask, deleteTask }: TaskProps) => {
   };
 
   return (
-    <StyledCard>
+    <StyledCard data-testid='listitem'>
       <div>
-        <label>Title: </label>
+        <label htmlFor='title'>Title: </label>
         <input
+          id='title'
+          data-testid='title-input'
           type='text'
           value={updatedTitle}
           onChange={(e) => setUpdatedTitle(e.target.value)}
@@ -35,8 +37,10 @@ const Task = ({ task, updateTask, deleteTask }: TaskProps) => {
       </div>
 
       <div>
-        <label>Description: </label>
+        <label htmlFor='description'>Description: </label>
         <input
+          id='description'
+          data-testid='description-input'
           type='text'
           value={updatedDescription}
           onChange={(e) => setUpdatedDescription(e.target.value)}
@@ -44,23 +48,35 @@ const Task = ({ task, updateTask, deleteTask }: TaskProps) => {
       </div>
 
       <div>
-        <label>Completed:</label>
+        <label htmlFor='completed'>Completed:</label>
         <input
+          id='completed'
+          data-testid='completed-checkbox'
           type='checkbox'
           checked={updatedCompleted}
           onChange={(e) => setUpdatedCompleted(e.target.checked)}
         />
       </div>
 
-      <button onClick={() => handleUpdateTask()}>Update</button>
-      <button onClick={() => deleteTask(task.id)}>Delete</button>
+      <button
+        onClick={() => handleUpdateTask()}
+        data-testid='update-task-btn'
+      >
+        Update
+      </button>
+      <button
+        onClick={() => deleteTask(task.id)}
+        data-testid='delete-task-btn'
+      >
+        Delete
+      </button>
     </StyledCard>
   );
 };
 
 const StyledCard = styled(Card)`
   width: 20rem;
-  margin: 20px;
+  margin: 1rem;
   border: 0.25rem solid black;
 `;
 

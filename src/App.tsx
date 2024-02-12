@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import TaskForm from './components/TaskForm';
-import TaskList from './components/TaskList';
+import TaskForm from './components/TaskForm/TaskForm';
+import TaskList from './components/TaskList/TaskList';
 import { ITask } from './types';
 
 function App() {

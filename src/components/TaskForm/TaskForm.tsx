@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
-import { ITask } from '../types';
+import { ITask } from '../../types';
 
 interface TaskFormProps {
   createTask: (task: ITask) => Promise<void>;
@@ -21,7 +21,6 @@ const TaskForm = ({ createTask }: TaskFormProps) => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-	  <h2>Create New Task</h2>
       <input
         type='text'
         placeholder='Title'

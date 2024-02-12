@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Task from './Task';
-import { ITask } from '../types';
+import Task from '../Task/Task';
+import { ITask } from '../../types';
 
 interface TaskListProps {
   tasks: ITask[];
@@ -10,8 +10,7 @@ interface TaskListProps {
 
 const TaskList = ({ tasks, updateTask, deleteTask }: TaskListProps) => {
   return (
-    <StyledList>
-      <h2>List of All Tasks</h2>
+    <StyledList data-testid='tasklist'>
       {tasks.map((task) => (
         <li key={task.id}>
           <Task
@@ -28,11 +27,6 @@ const TaskList = ({ tasks, updateTask, deleteTask }: TaskListProps) => {
 const StyledList = styled.ul`
   list-style-type: none;
   padding: 0;
-
-  h2 {
-    display: flex;
-    justify-content: center;
-  }
 `;
 
 export default TaskList;
